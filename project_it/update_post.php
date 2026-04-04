@@ -14,7 +14,7 @@ include ('connect/connect.php');
 					
 		if($Question!=null && $Details!=null){
 			$sql_add="UPDATE webboard SET Details='$Details',Question='$Question' WHERE QuestionID=".$id;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 		
 			// echo $sql_add;
 			echo "<script language='javascript'>

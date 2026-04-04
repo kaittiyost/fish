@@ -4,8 +4,8 @@
  error_reporting(0);
   include ('connect/connect.php');
 
-  // $objchqty=mysql_query("select * from tb_product");
-  // while($rschqty=mysql_fetch_array($objchqty)){
+  // $objchqty=mysqli_query($conn, "select * from tb_product");
+  // while($rschqty=mysqli_fetch_array($objchqty)){
   //   $key=array_search($rschqty['p_id'], $_SESSION['cart']);
   //   if($_SESSION['qty'][$key]>$rschqty['p_number']){
   //     echo "<script>alert('สินค้าเกินจำนวนคงเหลือ');history.back();</script>";
@@ -14,8 +14,8 @@
   // }
   $id=$_GET['id'];
     $sql_edit="select * from tb_user where user_id='$id'";
-    $rs_edit=mysql_query($sql_edit);
-    $row_edit=mysql_fetch_array($rs_edit);
+    $rs_edit=mysqli_query($conn, $sql_edit);
+    $row_edit=mysqli_fetch_array($rs_edit);
     $id=$row_edit['user_id'];
 
 if (isset($_SESSION['cart']))
@@ -27,9 +27,9 @@ if (isset($_SESSION['cart']))
     }
     $inputItems = rtrim($itemIds, ",");
     $meSql = "SELECT * FROM tb_product WHERE p_id in ({$inputItems})";
-    $meQuery = mysql_query($meSql);
-    $meCount = mysql_num_rows($meQuery);
-    echo mysql_error();
+    $meQuery = mysqli_query($conn, $meSql);
+    $meCount = mysqli_num_rows($meQuery);
+    echo mysqli_error($conn);
 }
 ?>
 <!DOCTYPE html>
@@ -58,8 +58,8 @@ if (isset($_SESSION['cart']))
         <div class="col-md-12">
         <?php 
             $sql="select * from tb_user where user_id=".$_SESSION['user_id'];; 
-            $rs_list=mysql_query($sql);
-            $row_sh=mysql_fetch_array($rs_list);
+            $rs_list=mysqli_query($conn, $sql);
+            $row_sh=mysqli_fetch_array($rs_list);
          ?>
 
           <form class="form-horizontal" id="form1" name="form1" method="post" action="add_order.php?oid=<?php echo $_REQUEST['oid']; ?>">
@@ -116,7 +116,7 @@ if (isset($_SESSION['cart']))
                   $type=1;
                   $i=0; 
                   $total_price=0;
-                  while($result = mysql_fetch_array($meQuery)){
+                  while($result = mysqli_fetch_array($meQuery)){
                   $key = array_search($result['p_id'], $_SESSION['cart']);
                   $total_price = $total_price + ($result['p_price'] * $_SESSION['qty'][$key]);
                 ?>   

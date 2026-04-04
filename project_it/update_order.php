@@ -18,7 +18,7 @@ include ('connect/connect.php');
 					
 		if($order_id!=null && $fullname!=null && $order_total!=null && $address!=null && $phone!=null && $card!=null && $order_status!=null){
 			$sql_add="UPDATE tb_orders SET order_id='$order_id',fullname='$fullname',order_total='$order_total',address='$address',phone='$phone',card='$card',order_status='$order_status' WHERE order_id=".$id;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			//echo $sql_add;
 			
 			echo "<script language='javascript'>

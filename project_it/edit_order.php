@@ -188,8 +188,8 @@ require 'connect/connect.php';
                <br>
               <?php 
                 $sel_list="select * from tb_orders where order_id=".$_GET['id']; 
-                $rs_list=mysql_query($sel_list);
-                $row_list=mysql_fetch_array($rs_list);
+                $rs_list=mysqli_query($conn, $sel_list);
+                $row_list=mysqli_fetch_array($rs_list);
               ?>
               <form class="form-horizontal" id="form" name="form" method="post" action="update_order.php?id=<?php echo $_GET['id']; ?>"><br> 
                 <div class="form-group form-group-sm">
@@ -252,9 +252,9 @@ require 'connect/connect.php';
               <form class="form-horizontal" id="form1" name="form1" method="post" action="#" enctype="multipart/form-data">
                 <?php
                  $sql="select * from tb_payment a,tb_bank b where a.bank_id=b.bank_id and order_id=".$_GET['id']; 
-                    $rs_list=mysql_query($sql);
+                    $rs_list=mysqli_query($conn, $sql);
 
-                    $row_sh=mysql_fetch_array($rs_list);
+                    $row_sh=mysqli_fetch_array($rs_list);
                     ?>
               <table class="table" >
                   <tr> 

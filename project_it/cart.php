@@ -30,8 +30,8 @@
     <div class="row"><!--content-->
       <div class="container" align="center"> 
        <?php
-              $sql = mysql_query("select * from tb_product where p_id=".$id); 
-              $result = mysql_fetch_array($sql);
+              $sql = mysqli_query($conn, "select * from tb_product where p_id=".$id); 
+              $result = mysqli_fetch_array($sql);
              
             ?>
         <form name="f1" action="preOrder.php" method="post">

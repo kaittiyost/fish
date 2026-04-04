@@ -4,8 +4,8 @@ session_start();
 require 'connect/connect.php';
   $id=$_GET['id'];
   $sql_edit="select * from tb_type_post where tp_id='$id'";
-    $rs_edit=mysql_query($sql_edit);
-    $row_edit=mysql_fetch_array($rs_edit);
+    $rs_edit=mysqli_query($conn, $sql_edit);
+    $row_edit=mysqli_fetch_array($rs_edit);
     $id=$row_edit['tp_id'];
 ?>
 <!DOCTYPE html>

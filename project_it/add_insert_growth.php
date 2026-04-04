@@ -12,7 +12,7 @@ include ('connect/connect.php');
 		if($fish!=""){//ตรวจข้อมูลซ้ๆ
 			
 			$sql_add="INSERT INTO tb_growth(growth_id, fish_number, growth_date, growth_size) values('','$fish','$date','$size')";
-				$rs_add=mysql_query($sql_add);
+				$rs_add=mysqli_query($conn, $sql_add);
 					//echo "SQL = ".$sql_add;
 					
 			 echo "<script>";

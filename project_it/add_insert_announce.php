@@ -6,12 +6,12 @@ include ('connect/connect.php');
 	if($type!=""){
 		
 		//$sql_chek="select * from tb_type_post where tp_title='$type'";
-		//$rs_check=mysql_query($sql_chek);
-		//$num=mysql_num_rows($rs_check);
+		//$rs_check=mysqli_query($conn, $sql_chek);
+		//$num=mysqli_num_rows($rs_check);
 		if($type!=""){//ตรวจข้อมูลซ้ๆ
 
 			$sql_add="insert into tb_type_post values('','$type')";
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			
 			echo "<script>";
 			echo "alert('บันทึกข้อมูลเรียบร้อยแล้ว');";

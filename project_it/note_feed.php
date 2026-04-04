@@ -39,8 +39,8 @@
               <form class="form-horizontal" id="form1" name="form1" method="post" action="#">
               <?php
                   $strSQL = "SELECT * FROM tb_feed";
-                  $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-                  $Num_Rows = mysql_num_rows($objQuery);
+                  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+                  $Num_Rows = mysqli_num_rows($objQuery);
                           
 
                       $Per_Page = 10;   // Per Page
@@ -69,7 +69,7 @@
                         $Num_Pages = (int)$Num_Pages;
                       }
                       $strSQL .=" order  by feed_id DESC LIMIT $Page_Start , $Per_Page";
-                      $objQuery  = mysql_query($strSQL);
+                      $objQuery  = mysqli_query($conn, $strSQL);
                       ?>
               <table class="table">
                   <tr  align="center" class="success"> 
@@ -81,7 +81,7 @@
                         
                   </tr>
                     <?php
-                       while($row_sh=mysql_fetch_array($objQuery)){
+                       while($row_sh=mysqli_fetch_array($objQuery)){
                     ?>
                   <tr align="center">
                         <td><?php echo $row_sh['fish_number'];?></td>
@@ -116,7 +116,7 @@
                 {
                   echo " <a href ='$_SERVER[SCRIPT_NAME]?Page=$Next_Page'>Next>></a> ";
                 }
-                //mysql_close($objConnect);
+                //mysqli_close($conn);
                 ?>
               </center> 
               <br>

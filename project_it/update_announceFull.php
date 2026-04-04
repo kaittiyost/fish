@@ -14,7 +14,7 @@
 					
 		if($post_header!=null && $post_detail!=null){
 			$sql_add="UPDATE tb_postmessage SET post_header='$post_header',post_detail='$post_detail',post_pic='$path' WHERE post_id=".$id;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			move_uploaded_file($tmp_pic,'pic/'.$pic);
 
 			echo "<script language='javascript'>

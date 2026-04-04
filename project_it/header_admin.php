@@ -1,7 +1,7 @@
 <?php include ('connect/connect.php'); 
   $sql="select * from tb_user where user_id='$_SESSION[user_id]'";
-  $rs1=mysql_query($sql);
-  $rows=mysql_fetch_array($rs1);
+  $rs1=mysqli_query($conn, $sql);
+  $rows=mysqli_fetch_array($rs1);
 ?>
  <div class="row"><!--header*3-->
       <div class="col-sm-12">

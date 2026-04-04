@@ -188,8 +188,8 @@ error_reporting(0);
                <br>
                <?php 
                       $num=0;
-                        $sql=mysql_query("SELECT * FROM tb_orders");
-                        while ($order=mysql_fetch_array($sql)) {
+                        $sql=mysqli_query($conn, "SELECT * FROM tb_orders");
+                        while ($order=mysqli_fetch_array($sql)) {
                           $num=$num+$order['order_total'];
                         }
 
@@ -236,8 +236,8 @@ error_reporting(0);
         <?php 
         // OR order_date LIKE '%$search%'
           $search=$_POST['search'];
-          $sql = mysql_query("SELECT * FROM tb_orders a,tb_payment b  WHERE a.order_id=b.order_id AND a.order_date LIKE '%$search%'   ORDER BY a.order_id"); 
-          $num=mysql_num_rows($sql);
+          $sql = mysqli_query($conn, "SELECT * FROM tb_orders a,tb_payment b  WHERE a.order_id=b.order_id AND a.order_date LIKE '%$search%'   ORDER BY a.order_id"); 
+          $num=mysqli_num_rows($sql);
           if($num!=0){
         ?>    
         <a href="show_detail.php"><button type="button" class="btn btn-success glyphicon glyphicon-list-alt"> รายการสั่งสินค้าทั้งหมด</button></a><br>
@@ -252,7 +252,7 @@ error_reporting(0);
                         <td><b>ลบ</b></td>
                   </tr>
                     <?php
-                       while($row_sh=mysql_fetch_array($sql)){
+                       while($row_sh=mysqli_fetch_array($sql)){
                     ?>
                   <tr align="center">
                         <td><?php echo $row_sh['order_id'];?></a></td>

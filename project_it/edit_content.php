@@ -182,8 +182,8 @@ require 'connect/connect.php';
                 <div class="col-xs-9"><!--col-xs-9-->
 
                 <?php $sel_list="select * from tb_knowledge where k_id=".$_GET['id']; 
-                    $rs_list=mysql_query($sel_list);
-                    $row_list=mysql_fetch_array($rs_list);
+                    $rs_list=mysqli_query($conn, $sel_list);
+                    $row_list=mysqli_fetch_array($rs_list);
                   ?>
                   
 

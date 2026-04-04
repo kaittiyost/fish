@@ -16,7 +16,7 @@ include ('connect/connect.php');
 		if($number!=""){
 
 			$sql_add="INSERT INTO tb_fish(fish_id, fish_name, fish_start, fish_resource, fish_size, fish_amount, fish_price,fish_number) VALUES ('','$name','$start','$resource','$size','$amount','$price','$number')";
-			 $rs_add=mysql_query($sql_add);
+			 $rs_add=mysqli_query($conn, $sql_add);
 			 //echo "SQL = ".$sql_add;
 
 			 echo "<script>";

@@ -206,8 +206,8 @@ error_reporting(0);
   
           <?php 
           $strSQL = "SELECT * FROM tb_orders";
-          $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-          $Num_Rows = mysql_num_rows($objQuery);
+          $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+          $Num_Rows = mysqli_num_rows($objQuery);
                   
 
               $Per_Page = 10;   // Per Page
@@ -236,7 +236,7 @@ error_reporting(0);
                 $Num_Pages = (int)$Num_Pages;
               }
               $strSQL .=" order  by order_id DESC LIMIT $Page_Start , $Per_Page";
-              $objQuery  = mysql_query($strSQL);
+              $objQuery  = mysqli_query($conn, $strSQL);
 
               ?>  
               <br>  
@@ -252,7 +252,7 @@ error_reporting(0);
                         <td><b>ลบ</b></td>
                   </tr>
                     <?php
-                       while($row_sh=mysql_fetch_array($objQuery)){
+                       while($row_sh=mysqli_fetch_array($objQuery)){
                     ?>
                   <tr align="center">
                         <td><?php echo $row_sh['order_id'];?></a></td>
@@ -291,7 +291,7 @@ error_reporting(0);
                 {
                   echo " <a href ='$_SERVER[SCRIPT_NAME]?Page=$Next_Page'>Next>></a> ";
                 }
-                //mysql_close($objConnect);
+                //mysqli_close($conn);
                 ?>
               </center> 
               <br>

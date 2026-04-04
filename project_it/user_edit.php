@@ -2,8 +2,8 @@
     session_start();
 
     $sql="SELECT * FROM tb_user WHERE user_id=".$_REQUEST['id'];
-    $rows=mysql_query($sql);
-    $rs1=mysql_fetch_array($rows);
+    $rows=mysqli_query($conn, $sql);
+    $rs1=mysqli_fetch_array($rows);
 ?>
 <!DOCTYPE html>
 <html lang="en">

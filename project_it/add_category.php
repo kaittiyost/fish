@@ -7,11 +7,11 @@ include ('connect/connect.php');
 	if($category!=""){
 		
 		$sql_chek="select * from tb_category where category_name='$category'";
-		$rs_check=mysql_query($sql_chek);
-		$num=mysql_num_rows($rs_check);
+		$rs_check=mysqli_query($conn, $sql_chek);
+		$num=mysqli_num_rows($rs_check);
 		if($num!=1){//ตรวจข้อมูลซ้ๆ
 			$sql_add="insert into tb_category values('','$category')";
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			
 			
 			echo "<script>";

@@ -189,8 +189,8 @@ require 'connect/connect.php';
                     <div class="btn-group">
                       <select type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="tp_id" id="tp_id">
                        <?php $sel_list="select * from tb_type_post"; 
-                          $rs_list=mysql_query($sel_list);
-                          while($row_list=mysql_fetch_array($rs_list)){
+                          $rs_list=mysqli_query($conn, $sel_list);
+                          while($row_list=mysqli_fetch_array($rs_list)){
                           ?>
                           <option value="<?php echo $row_list['tp_id']?>"> <?php echo $row_list['tp_title'];?>  </option>
                         <?php }?>

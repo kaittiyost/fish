@@ -18,7 +18,7 @@ include ('connect/connect.php');
 		if($type!=""){//ตรวจข้อมูลซ้ๆ
 			move_uploaded_file($tmp_pic,'pic/'.$pic);
 			$sql_add="insert into tb_postmessage(post_id, tp_id, post_header,post_detail, post_pic,  post_date) values('','$type','$header','$detail','$path','$date')";
-				 $rs_add=mysql_query($sql_add);
+				 $rs_add=mysqli_query($conn, $sql_add);
 					//echo "SQL = ".$sql_add;
 					 echo "<script>";
 					 echo "alert('บันทึกข้อมูลเรียบร้อยแล้ว');";

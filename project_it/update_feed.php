@@ -14,7 +14,7 @@ include ('connect/connect.php');
 					
 		if($feed_name!=null && $feed_date!=null && $feed_amount!=null && $feed_total!=null ){
 			$sql_add="UPDATE tb_feed SET feed_name='$feed_name',feed_date='$feed_date',feed_amount='$feed_amount',feed_total='$feed_total' WHERE feed_id=".$id;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			
 			//echo $sql_add;
 			

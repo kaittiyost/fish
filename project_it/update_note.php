@@ -16,7 +16,7 @@ include ('connect/connect.php');
 					
 		if($fish_number!=null && $fish_name!=null && $fish_start!=null && $fish_resource!=null && $fish_size!=null && $fish_amount!=null && $fish_price!=null){
 			$sql_add="UPDATE tb_fish SET fish_number='$fish_number',fish_name='$fish_name',fish_start='$fish_start',fish_resource='$fish_resource',fish_size='$fish_size',fish_amount='$fish_amount',fish_price='$fish_price' WHERE fish_id=".$id;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			
 			//echo $sql_add;
 			

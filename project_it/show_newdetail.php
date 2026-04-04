@@ -29,8 +29,8 @@
           </div>
         </div><br>
         <?php 
-          $sql = mysql_query("select * from tb_postmessage where post_id=".$id); 
-          $result = mysql_fetch_array($sql);
+          $sql = mysqli_query($conn, "select * from tb_postmessage where post_id=".$id); 
+          $result = mysqli_fetch_array($sql);
         ?>
           <table class="caption">
                 <tr>

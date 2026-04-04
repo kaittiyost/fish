@@ -186,8 +186,8 @@ require 'connect/connect.php';
                 <div class="col-xs-9"><!--col-xs-9-->
                  <?php 
                     @$sel_list="select * from webboard where QuestionID=".$_GET['id']; 
-                    $rs_list=mysql_query($sel_list);
-                    @$row_list=mysql_fetch_array($rs_list);
+                    $rs_list=mysqli_query($conn, $sel_list);
+                    @$row_list=mysqli_fetch_array($rs_list);
                   ?>
                   <form class="form-horizontal" id="form" name="form" method="post" action="update_post.php?id=<?php echo $_GET['id']; ?>">
                   <center><h3>แก้ไขคำถาม</h3></center><hr />

@@ -26,8 +26,8 @@
           </div>
         </div><br>
         <?php 
-          $sql = mysql_query("select * from tb_knowledge where k_id=8"); 
-          $result = mysql_fetch_array($sql);
+          $sql = mysqli_query($conn, "select * from tb_knowledge where k_id=8"); 
+          $result = mysqli_fetch_array($sql);
         ?>
           <table class="caption">
                 <tr>

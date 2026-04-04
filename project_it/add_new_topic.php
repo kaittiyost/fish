@@ -9,9 +9,9 @@ $created = date('Y-m-d H:i:s');
 
 $sql = "INSERT INTO questions (topic,detail,name,email,created) VALUES ";
 $sql .= "('{$topic}','{$detail}','{$name}','{$email}','{$created}')";
-$query = mysql_query($sql);
+$query = mysqli_query($conn, $sql);
 if ($query == TRUE) {
  echo "Success!<BR>";
  echo "<a href='main_webboard.php'>Back to view your topic.</a>";
 }
-mysql_close();
+mysqli_close($conn);

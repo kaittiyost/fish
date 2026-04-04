@@ -13,7 +13,7 @@ include ('connect/connect.php');
 					
 		if($Details!=null){
 			$sql_add="UPDATE reply SET Details='$Details' WHERE ReplyID=".$id;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 		
 			// echo $sql_add;
 			echo "<script language='javascript'>

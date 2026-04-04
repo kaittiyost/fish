@@ -15,12 +15,12 @@ include ('connect/connect.php');
 	if($header!="" && $detail!="" && $date!="" && $pic!=""){
 		
 		$sql_chek="select * from tb_knowledge where k_header='$header'";
-		$rs_check=mysql_query($sql_chek);
-		$num=mysql_num_rows($rs_check);
+		$rs_check=mysqli_query($conn, $sql_chek);
+		$num=mysqli_num_rows($rs_check);
 		if($num!=1){//ตรวจข้อมูลซ้ๆ
 			move_uploaded_file($tmp_pic,'pic/'.$pic);
 			$sql_add="insert into tb_knowledge values('','$header','$path','$detail','$date')";
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			
 			
 			echo "<script>";

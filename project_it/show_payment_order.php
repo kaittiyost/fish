@@ -187,9 +187,9 @@ $id=$_GET['id'];
                   </tr>
                     <?php
                         $sql="select * from tb_payment where pm_id=".$id;
-                        $rs1=mysql_query($sql);
+                        $rs1=mysqli_query($conn, $sql);
                         $no=1;
-                       $row_sh=mysql_fetch_array($rs1);
+                       $row_sh=mysqli_fetch_array($rs1);
                     ?>
                   <tr align="center">
                         

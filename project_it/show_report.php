@@ -23,9 +23,9 @@
               <table width="900"><br>       
                     <?php
                         $sql=("select * from tb_orders where order_id=".$_REQUEST['oid']);
-                        $rs1=mysql_query($sql);
+                        $rs1=mysqli_query($conn, $sql);
                         $no=1;
-                       $row_sh=mysql_fetch_array($rs1);
+                       $row_sh=mysqli_fetch_array($rs1);
                        $order_total=$row_sh['order_total'];
                     ?>
                     <tr>
@@ -43,7 +43,7 @@
                     <table width="900" border="1">
                     <?php
                         $sql=("select * from tb_order_details where order_id=".$_REQUEST['oid']);
-                        $rs1=mysql_query($sql);
+                        $rs1=mysqli_query($conn, $sql);
                         $no=1;                       
                     ?>
                     <tr style="background-color: green;">
@@ -53,9 +53,9 @@
                       <td height="50" width="100" align="center"><b>ราคารวม</b></td>
                     </tr>
                     <?php 
-                        while($row_sh=mysql_fetch_array($rs1)){
-                          $objpro=mysql_query("select * from tb_product where p_id=".$row_sh['p_id']);
-                          $rpro=mysql_fetch_array($objpro);                            
+                        while($row_sh=mysqli_fetch_array($rs1)){
+                          $objpro=mysqli_query($conn, "select * from tb_product where p_id=".$row_sh['p_id']);
+                          $rpro=mysqli_fetch_array($objpro);                            
                     ?>
                     <tr>
                       <td width="600" align="center"><?php echo $rpro['p_name'];?></td>

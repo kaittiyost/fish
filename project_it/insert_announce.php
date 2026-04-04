@@ -205,8 +205,8 @@ require 'connect/connect.php';
               <form class="form-horizontal" id="form1" name="form1" method="post" action="#">
                 <?php
                   $strSQL = "SELECT * FROM tb_type_post";
-                  $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-                  $Num_Rows = mysql_num_rows($objQuery);
+                  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+                  $Num_Rows = mysqli_num_rows($objQuery);
                           
 
                       $Per_Page = 10;   // Per Page
@@ -235,7 +235,7 @@ require 'connect/connect.php';
                         $Num_Pages = (int)$Num_Pages;
                       }
                       $strSQL .=" order  by tp_id DESC LIMIT $Page_Start , $Per_Page";
-                      $objQuery  = mysql_query($strSQL);
+                      $objQuery  = mysqli_query($conn, $strSQL);
                       ?>
               <table class="table">
                   <tr  align="center" class="success"> 
@@ -245,9 +245,9 @@ require 'connect/connect.php';
                   </tr>
                     <?php
                        // $sql="select * from tb_type_post";
-                        //$rs1=mysql_query($sql);
+                        //$rs1=mysqli_query($conn, $sql);
                         //$no=1;
-                       while($row_sh=mysql_fetch_array($objQuery)){
+                       while($row_sh=mysqli_fetch_array($objQuery)){
                     ?>
                   <tr align="center">
                         <td><?php echo $row_sh['tp_title'];?></a></td>
@@ -283,7 +283,7 @@ require 'connect/connect.php';
                 {
                   echo " <a href ='$_SERVER[SCRIPT_NAME]?Page=$Next_Page'>Next>></a> ";
                 }
-                //mysql_close($objConnect);
+                //mysqli_close($conn);
                 ?>
               </center> 
               <br>

@@ -12,7 +12,7 @@ include ('connect/connect.php');
 					
 		if($growth_date!=null && $growth_size!=null ){
 			$sql_add="UPDATE tb_growth SET growth_date='$growth_date',growth_size='$growth_size' WHERE growth_id=".$id;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			
 			//echo $sql_add;
 			

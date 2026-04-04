@@ -7,13 +7,13 @@
               $strSQL .="(QuestionID,CreateDate,Details,Name) ";
               $strSQL .="VALUES ";
               $strSQL .="('".$_GET["QuestionID"]."','".date("Y-m-d H:i:s")."','".$_POST["txtDetails"]."','".$_POST["txtName"]."') ";
-              $objQuery = mysql_query($strSQL);
+              $objQuery = mysqli_query($conn, $strSQL);
               //header("refresh: 0; ViewWebboard.php");
               
               //*** Update Reply ***//
               $strSQL = "UPDATE webboard ";
               $strSQL .="SET Reply = Reply + 1 WHERE QuestionID = '".$_GET["QuestionID"]."' ";
-              $objQuery = mysql_query($strSQL); 
+              $objQuery = mysqli_query($conn, $strSQL); 
 
             }
 
@@ -120,13 +120,13 @@
         <?php
           //*** Select Question ***//
           $strSQL = "SELECT * FROM webboard  WHERE QuestionID = '".$_GET["QuestionID"]."' ";
-          $objQuery = mysql_query($strSQL);
-          $objResult = mysql_fetch_array($objQuery);
+          $objQuery = mysqli_query($conn, $strSQL);
+          $objResult = mysqli_fetch_array($objQuery);
 
           //*** Update View ***//
           $strSQL = "UPDATE webboard ";
           $strSQL .="SET View = View + 1 WHERE QuestionID = '".$_GET["QuestionID"]."' ";
-         $objQuery = mysql_query($strSQL); 
+         $objQuery = mysqli_query($conn, $strSQL); 
           ?>
           <table width="738">
             <tr>
@@ -145,8 +145,8 @@
           <?php
             $intRows = 0;
             $strSQL2 = "SELECT * FROM reply  WHERE QuestionID = '".$_GET["QuestionID"]."' ";
-            $objQuery2 = mysql_query($strSQL2) or die ("Error Query [".$strSQL."]");
-            while($objResult2 = mysql_fetch_array($objQuery2))
+            $objQuery2 = mysqli_query($conn, $strSQL2) or die ("Error Query [".$strSQL."]");
+            while($objResult2 = mysqli_fetch_array($objQuery2))
             {
               $intRows++;
           ?> 

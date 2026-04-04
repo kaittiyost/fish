@@ -21,7 +21,7 @@ include ('connect/connect.php');
 		if($category!=""){//ตรวจข้อมูลซ้ๆ
 			move_uploaded_file($tmp_pic,'pic/'.$pic);
 			$sql_add="INSERT INTO tb_product(p_id, category_id, p_name, p_pic, p_price, p_number, p_date) values('','$category','$name','$path','$price','$number','$date')";
-				 $rs_add=mysql_query($sql_add);
+				 $rs_add=mysqli_query($conn, $sql_add);
 					//echo "SQL = ".$sql_add;
 					 echo "<script>";
 					 echo "alert('บันทึกข้อมูลเรียบร้อยแล้ว');";

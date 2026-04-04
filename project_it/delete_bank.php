@@ -4,12 +4,12 @@ include ('connect/connect.php');
 	$id=$_GET['id'];
 	
 	$unlink="select * from tb_bank where bank_id='$id'";
-	$rs_un=mysql_query($unlink);
-	$row_un=mysql_fetch_array($rs_un);
+	$rs_un=mysqli_query($conn, $unlink);
+	$row_un=mysqli_fetch_array($rs_un);
 	
 	if($id!=""){
 		$sql_delete="delete from tb_bank where bank_id='$id'";	
-		$rs_delete=mysql_query($sql_delete);
+		$rs_delete=mysqli_query($conn, $sql_delete);
 
 		echo "<script language='javascript'>
    		alert('Delete เรียบร้อยแล้ว!!!');

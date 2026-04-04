@@ -38,8 +38,8 @@
           
           <?php
             $strSQL = "SELECT * FROM webboard ";
-            $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-            $Num_Rows = mysql_num_rows($objQuery);
+            $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+            $Num_Rows = mysqli_num_rows($objQuery);
 
             $Per_Page = 10;   // Per Page
 
@@ -68,7 +68,7 @@
             }
 
             $strSQL .=" order  by QuestionID DESC LIMIT $Page_Start , $Per_Page";
-            $objQuery  = mysql_query($strSQL);
+            $objQuery  = mysqli_query($conn, $strSQL);
           ?>
           <table class="table table-striped" >
             <tr align="center" class="success">
@@ -80,7 +80,7 @@
               <th width="47"> <div align="center" class="success">ตอบ</div></th>
             </tr>
           <?php
-          while($objResult = mysql_fetch_array($objQuery))
+          while($objResult = mysqli_fetch_array($objQuery))
           {
           ?>
             <tr align="center">
@@ -118,7 +118,7 @@
           {
             echo " <a href ='$_SERVER[SCRIPT_NAME]?Page=$Next_Page'>Next>></a> ";
           }
-          //mysql_close($objConnect);
+          //mysqli_close($conn);
           ?>
 
       </div></br></br>

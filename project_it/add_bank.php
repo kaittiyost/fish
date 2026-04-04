@@ -8,11 +8,11 @@ include ('connect/connect.php');
 	if($bank_number!=""){
 		
 		$sql_chek="select * from tb_bank where bank_number='$bank_number'";
-		$rs_check=mysql_query($sql_chek);
-		$num=mysql_num_rows($rs_check);
+		$rs_check=mysqli_query($conn, $sql_chek);
+		$num=mysqli_num_rows($rs_check);
 		if($num!=1){//ตรวจข้อมูลซ้ๆ
 			$sql_add="insert into tb_bank values('','$bank_number','$bank_name')";
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			echo $sql_add;
 			
 			echo "<script>";

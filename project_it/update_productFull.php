@@ -15,7 +15,7 @@
 					
 		if($p_name!=null && $p_price!=null && $p_number!=null && $path!=null){
 			$sql_add="UPDATE tb_product SET p_name='$p_name',p_price='$p_price',p_number='$p_number',p_pic='$path' WHERE p_id=".$id;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			move_uploaded_file($tmp_pic,'pic/'.$pic);
 			//echo $sql_add;
 

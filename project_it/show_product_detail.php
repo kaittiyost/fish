@@ -32,9 +32,9 @@
           <li role="presentation"><a href="show_product2.php"><b>ประกอบอาหาร</b></a></li>
         </ul>
           <br>
-        <?php $sql = mysql_query("select * from tb_product"); ?>    
+        <?php $sql = mysqli_query($conn, "select * from tb_product"); ?>    
         <div class="row">         
-          <?php while($result = mysql_fetch_array($sql)) { ?>
+          <?php while($result = mysqli_fetch_array($sql)) { ?>
           <div class="col-sm-4 col-md-3">
             <div class="thumbnail">
               <img src="<?php echo $result['p_pic']; ?>" style="width:350px; height: 150px;" class="img-rounded">

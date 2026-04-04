@@ -33,10 +33,10 @@
         </ul>
           <br>
         <?php 
-          $sql = mysql_query("select * from tb_product where category_id=2"); 
+          $sql = mysqli_query($conn, "select * from tb_product where category_id=2"); 
         ?>    
         <div class="row">         
-          <?php while($result = mysql_fetch_array($sql)) { ?>
+          <?php while($result = mysqli_fetch_array($sql)) { ?>
           <div class="col-sm-4 col-md-3">
             <div class="thumbnail">
               <img src="<?php echo $result['p_pic']; ?>" style="width:350px; height: 150px;" class="img-rounded">

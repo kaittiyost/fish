@@ -136,8 +136,8 @@
           <h1 align="left"><img src="./img/new.png" width="350" height="70"></h1>
             <?php
                   $strSQL = "SELECT * FROM tb_postmessage";
-                  $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
-                  $Num_Rows = mysql_num_rows($objQuery);
+                  $objQuery = mysqli_query($conn, $strSQL) or die ("Error Query [".$strSQL."]");
+                  $Num_Rows = mysqli_num_rows($objQuery);
                           
 
                       $Per_Page = 4;   // Per Page
@@ -166,11 +166,11 @@
                         $Num_Pages = (int)$Num_Pages;
                       }
                       $strSQL .=" order  by post_id DESC LIMIT $Page_Start , $Per_Page";
-                      $objQuery  = mysql_query($strSQL);
+                      $objQuery  = mysqli_query($conn, $strSQL);
                       ?>
             <table class="table" >
                     <?php
-                       while($row_sh=mysql_fetch_array($objQuery)){
+                       while($row_sh=mysqli_fetch_array($objQuery)){
                     ?>
                   <tr>
                         <td align="left"><a href="show_newdetail.php?id=<?php echo $row_sh['post_id'];?>" ><?php echo $row_sh['post_header'];?></a></a></td>
@@ -201,11 +201,11 @@
                       return $b['count'] - $a['count'];
                   }
                   $arrpro1[]=null;
-                  $objpro1=mysql_query("select * from tb_product where category_id=1");
-                  while($rspro1=mysql_fetch_array($objpro1)){
-                    $objpd1=mysql_query("select * from tb_order_details where p_id=".$rspro1['p_id']);
+                  $objpro1=mysqli_query($conn, "select * from tb_product where category_id=1");
+                  while($rspro1=mysqli_fetch_array($objpro1)){
+                    $objpd1=mysqli_query($conn, "select * from tb_order_details where p_id=".$rspro1['p_id']);
                     $cpd1=0;
-                    while($rspd1=mysql_fetch_array($objpd1)){
+                    while($rspd1=mysqli_fetch_array($objpd1)){
                       $cpd1=$cpd1+$rspd1['p_number'];
                     }
                     array_push($arrpro1,array("p_id"=>$rspro1['p_id'],"count"=>$cpd1));
@@ -213,11 +213,11 @@
                   usort($arrpro1, 'sortByValue');
 
                   $arrpro2[]=null;
-                  $objpro2=mysql_query("select * from tb_product where category_id=2");
-                  while($rspro2=mysql_fetch_array($objpro2)){
-                    $objpd2=mysql_query("select * from tb_order_details where p_id=".$rspro2['p_id']);
+                  $objpro2=mysqli_query($conn, "select * from tb_product where category_id=2");
+                  while($rspro2=mysqli_fetch_array($objpro2)){
+                    $objpd2=mysqli_query($conn, "select * from tb_order_details where p_id=".$rspro2['p_id']);
                     $cpd2=0;
-                    while($rspd2=mysql_fetch_array($objpd2)){
+                    while($rspd2=mysqli_fetch_array($objpd2)){
                       $cpd2=$cpd2+$rspd2['p_number'];
                     }
                     array_push($arrpro2,array("p_id"=>$rspro2['p_id'],"count"=>$cpd2));
@@ -230,8 +230,8 @@
                   for($i=0;$i<count($arrpro1);$i++){
                     if($i>3)break;
                     if($arrpro1[$i]!=null){
-                      $objpro1=mysql_query("select * from tb_product where p_id=".$arrpro1[$i]['p_id']);
-                      $rspro1=mysql_fetch_array($objpro1);
+                      $objpro1=mysqli_query($conn, "select * from tb_product where p_id=".$arrpro1[$i]['p_id']);
+                      $rspro1=mysqli_fetch_array($objpro1);
                       ?>
                       <div class="col-sm-4 col-md-3">
                         <div class="thumbnail">
@@ -254,8 +254,8 @@
                   for($i=0;$i<count($arrpro2);$i++){
                     if($i>3)break;
                     if($arrpro2[$i]!=null){
-                      $objpro2=mysql_query("select * from tb_product where p_id=".$arrpro2[$i]['p_id']);
-                      $rspro2=mysql_fetch_array($objpro2);
+                      $objpro2=mysqli_query($conn, "select * from tb_product where p_id=".$arrpro2[$i]['p_id']);
+                      $rspro2=mysqli_fetch_array($objpro2);
                       ?>
                       <div class="col-sm-4 col-md-3">
                         <div class="thumbnail">

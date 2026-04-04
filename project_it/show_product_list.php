@@ -51,12 +51,12 @@
       <br>
         <?php 
           $search=$_POST['search'];
-          $sql = mysql_query("SELECT * FROM tb_product WHERE p_id LIKE '%$search%' OR p_name LIKE '%$search%' ORDER BY p_id"); 
-          $num=mysql_num_rows($sql);
+          $sql = mysqli_query($conn, "SELECT * FROM tb_product WHERE p_id LIKE '%$search%' OR p_name LIKE '%$search%' ORDER BY p_id"); 
+          $num=mysqli_num_rows($sql);
           if($num!=0){
         ?>    
         <div class="row">         
-          <?php while($result = mysql_fetch_array($sql)) { ?>
+          <?php while($result = mysqli_fetch_array($sql)) { ?>
           <div class="col-sm-4 col-md-3">
             <div class="thumbnail">
               <img src="<?php echo $result['p_pic']; ?>" style="width:350px; height: 150px;" class="img-rounded">

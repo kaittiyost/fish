@@ -37,9 +37,9 @@
           <br>
         <div class="row"><!--content-->
       <div class="container" align="center"> 
-        <?php $sql = mysql_query("select * from tb_postmessage where tp_id=2"); ?>    
+        <?php $sql = mysqli_query($conn, "select * from tb_postmessage where tp_id=2"); ?>    
         <div class="row">         
-          <?php while($result = mysql_fetch_array($sql)) { ?>
+          <?php while($result = mysqli_fetch_array($sql)) { ?>
           <div class="col-sm-5 col-md-4">
             <div class="thumbnail">
               <img src="<?php echo $result['post_pic']; ?>" style="width:350px; height: 250px;" class="img-rounded"><br>

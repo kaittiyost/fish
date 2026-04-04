@@ -15,11 +15,11 @@ include ('connect/connect.php');
 	if($user!="" && $pass!="" && $fname!="" && $lname!="" && $address!="" && $phone!=""){
 		
 		$sql_chek="select * from tb_user where user_name='$user'";
-		$rs_check=mysql_query($sql_chek);
-		$user_name=mysql_num_rows($rs_check);
+		$rs_check=mysqli_query($conn, $sql_chek);
+		$user_name=mysqli_num_rows($rs_check);
 		if($user_name!=1){//ตรวจข้อมูลซ้ๆ
 			$sql_add="insert into tb_user values('','$user','$pass','$fname','$lname','$address','$phone','$status')";
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			
 			 echo "<script>";
 			 echo "alert('บันทึกข้อมูลเรียบร้อยแล้ว');";

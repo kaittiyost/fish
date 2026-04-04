@@ -13,10 +13,10 @@
 	}
 	else{
 		$sql="select * from tb_user where user_name='$user' and pass_word='$pass'";
-		$rs1=mysql_query($sql);
-		$num=mysql_num_rows($rs1);
+		$rs1=mysqli_query($conn, $sql);
+		$num=mysqli_num_rows($rs1);
 		if($num!='0'){
-			$rows=mysql_fetch_array($rs1);
+			$rows=mysqli_fetch_array($rs1);
 			$_SESSION['user_id']=$rows['user_id'];
 			$_SESSION['uname']=$rows['fname']."  ".$rows['lname'];
 			$_SESSION['address']=$rows['address'];

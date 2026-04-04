@@ -13,7 +13,7 @@ include ('connect/connect.php');
 		if($fish!=""){//ตรวจข้อมูลซ้ๆ
 			
 			$sql_add="insert into tb_feed(feed_id, feed_name, feed_date, feed_amount, feed_total,fish_number) values('','$name','$date','$amount','$total','$fish')";
-				 $rs_add=mysql_query($sql_add);
+				 $rs_add=mysqli_query($conn, $sql_add);
 					//echo "SQL = ".$sql_add;
 					
 			 echo "<script>";

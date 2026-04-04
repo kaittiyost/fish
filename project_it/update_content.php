@@ -15,7 +15,7 @@ include ('connect/connect.php');
 		if($k_header!=null && $k_detail!=null && $path!=null){
 			move_uploaded_file($tmp_pic,'pic/'.$pic);
 			$sql_add="UPDATE tb_knowledge SET k_header='$k_header',k_pic='$path',k_detail='$k_detail' WHERE k_id=".$id;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			
 			//echo $sql_add;
 			echo "<script language='javascript'>

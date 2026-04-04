@@ -18,13 +18,13 @@ include ('connect/connect.php');
 	if($order!="" && $date!="" && $pic!="" && $bank_id!=""){
 		
 		$sql_chek="select * from tb_payment where order_id='$order'";
-		$rs_check=mysql_query($sql_chek);
-		$num=mysql_num_rows($rs_check);
+		$rs_check=mysqli_query($conn, $sql_chek);
+		$num=mysqli_num_rows($rs_check);
 		if($num!=1){//ตรวจข้อมูลซ้ๆ
 			move_uploaded_file($tmp_pic,'pic/'.$pic);
 			$sql_add="INSERT INTO tb_payment(pm_id, order_id, pm_pic, pm_date, bank_id)values('','$order','$path','$date','$bank_id')";
 			//echo $sql_add;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 
 			 echo "<script>";
 			 echo "alert('บันทึกข้อมูลเรียบร้อยแล้ว');";

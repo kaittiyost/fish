@@ -13,7 +13,7 @@ include ('connect/connect.php');
 		if($fish!=""){//ตรวจข้อมูลซ้ๆ
 			
 			$sql_add="insert into tb_deadfish(dead_id, dead_date, dead_amount, dead_cause,fish_number) values('','$date','$amount','$cause','$fish')";
-				 $rs_add=mysql_query($sql_add);
+				 $rs_add=mysqli_query($conn, $sql_add);
 					//echo "SQL = ".$sql_add;
 					
 			 echo "<script>";

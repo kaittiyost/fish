@@ -14,7 +14,7 @@ include ('connect/connect.php');
 					
 		if($dead_date!=null && $dead_amount!=null && $dead_cause!=null ){
 			$sql_add="UPDATE tb_deadfish SET dead_date='$dead_date',dead_amount='$dead_amount',dead_cause='$dead_cause' WHERE dead_id=".$id;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			
 			//echo $sql_add;
 			

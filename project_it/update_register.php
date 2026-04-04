@@ -13,7 +13,7 @@ include ('connect/connect.php');
 					
 		if($pass!=null && $fn!=null && $ln!=null && $address!=null && $phone!=null){
 			$sql_add="UPDATE tb_user SET pass_word='$pass',fname='$fn',lname='$ln',address='$address',phone='$phone' WHERE user_id=".$id;
-			$rs_add=mysql_query($sql_add);
+			$rs_add=mysqli_query($conn, $sql_add);
 			//echo $sql_add;
 			echo "<script language='javascript'>
 	   		alert('แก้ไขข้อมูลเรียบร้อยแล้ว.');

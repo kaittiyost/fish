@@ -14,9 +14,9 @@ if (isset($_SESSION['cart']))
     }
     $inputItems = rtrim($itemIds, ",");
     $meSql = "SELECT * FROM tb_product WHERE p_id in ({$inputItems})";
-    $meQuery = mysql_query($meSql);
-    $meCount = mysql_num_rows($meQuery);
-    echo mysql_error();
+    $meQuery = mysqli_query($conn, $meSql);
+    $meCount = mysqli_num_rows($meQuery);
+    echo mysqli_error($conn);
 }
 
 ?>
@@ -60,7 +60,7 @@ if (isset($_SESSION['cart']))
                   $type=1;
                   $i=0; 
                   $total_price=0;
-                  while($result = mysql_fetch_array($meQuery)){
+                  while($result = mysqli_fetch_array($meQuery)){
 
                   $key = array_search($result['p_id'], $_SESSION['cart']);
                   $total_price = $total_price + ($result['p_price'] * $_SESSION['qty'][$key]);
