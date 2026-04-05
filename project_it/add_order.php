@@ -14,7 +14,7 @@ include ('connect/connect.php');
 	if($fullname!="" && $address!="" && $phone!="" && $card!="" && $total!=""){
 		if($fullname!=""){//ตรวจข้อมูลซ้ๆ
 			
-			$sql_add="INSERT INTO tb_orders(order_id, user_id, order_total, fullname, address, phone, card) values('','$user','$total','$fullname','$address','$phone','$card')";
+			$sql_add="INSERT INTO tb_orders(order_id, user_id, order_total, fullname, address, phone, card) values(null,'$user','$total','$fullname','$address','$phone','$card')";
 				 $rs_add=mysqli_query($conn, $sql_add);
 				$order_id = mysqli_insert_id($conn);
 				//echo "SQL = ".$sql_add."<br>";
