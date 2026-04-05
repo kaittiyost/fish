@@ -18,7 +18,7 @@ include ('connect/connect.php');
 		$rs_check=mysqli_query($conn, $sql_chek);
 		$user_name=mysqli_num_rows($rs_check);
 		if($user_name!=1){//ตรวจข้อมูลซ้ๆ
-			$sql_add="insert into tb_user values('','$user','$pass','$fname','$lname','$address','$phone','$status')";
+			$sql_add="insert into tb_user values('NULL','$user','$pass','$fname','$lname','$address','$phone','$status')";
 			$rs_add=mysqli_query($conn, $sql_add);
 			
 			 echo "<script>";

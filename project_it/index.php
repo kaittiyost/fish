@@ -48,7 +48,7 @@
         </nav>
         <div class="row">
           <div class="col-sm-12">
-               <img src="./img/bg.png" width="100%" height="100%">
+               <img src="./img/bg.png" width="100%" height="50%">
           </div>
           <div class="col-sm-12">
              <nav class="navbar navbar-inverse" style="background-color: black;">
